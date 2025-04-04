@@ -150,7 +150,3 @@ Environment variables are managed using `dotenvx`.
 ---
 
 Happy coding! ✨
-
-```
-
-```
