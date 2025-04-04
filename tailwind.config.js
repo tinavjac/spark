@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  darkMode: "class",
+  content: ["src/**/*.{tsx,jsx,ts,js}", "components/**/*.{tsx,jsx,ts,js}"],
   presets: [require("nativewind/preset")],
   theme: {
     extend: {},
@@ -9,4 +10,4 @@ module.exports = {
     hoverOnlyWhenSupported: true,
   },
   plugins: [],
-};
+}

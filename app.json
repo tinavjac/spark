@@ -1,20 +1,29 @@
 {
   "expo": {
-    "scheme": "acme",
+    "newArchEnabled": true,
+    "name": "Spark",
+    "slug": "spark",
+    "scheme": "spark",
+    "version": "1.0.0",
+    "orientation": "portrait",
     "userInterfaceStyle": "automatic",
-    "orientation": "default",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {},
     "web": {
-      "output": "static"
+      "bundler": "metro"
     },
     "plugins": [
       [
         "expo-router",
         {
-          "origin": "https://n"
+          "root": "./src/app"
         }
       ]
     ],
-    "name": "spark",
-    "slug": "spark"
+    "experiments": {
+      "typedRoutes": true
+    }
   }
 }
