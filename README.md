@@ -26,7 +26,6 @@ This boilerplate comes pre-configured with:
 - **Utilities:**
   - clsx & tailwind-merge (Conditional & optimized class names)
   - dotenvx (Environment variable management)
-  - patch-package (Apply patches to node_modules)
 - **Linting & Formatting:** ESLint & Prettier (with Tailwind plugin)
 - **Build & Development:** Expo EAS Build & Expo Go / Development Client
 
@@ -76,34 +75,27 @@ The project follows a feature-first approach within the `src` directory:
     ```
 
 2.  **Install dependencies:**
-    _(Choose one based on your preferred package manager)_
 
     ```bash
-    yarn install
-    # --- OR ---
-    npm install
+    pnpm install
     ```
 
-3.  **Set up Environment Variables:**
-
-    - Create `.env.development` and `.env.production` files by copying from potential examples (if provided) or creating them manually.
-    - Populate them with your required environment variables (e.g., API keys, base URLs).
-    - **Important:** These files are listed in `.gitignore` and should **not** be committed to version control.
-
-4.  **Run the app:**
+3.  **Run the app:**
 
 - Prebuild the app first (if you haven't already):
 
   ```bash
-  npm run prebuild
+  pnpm run prebuild
   ```
 
   Generates the `ios` and `android` directories.
 
 - Create the development build:
+
   ```bash
-  npm run <ios|android>
+  pnpm run <ios|android>
   ```
+
   Open the installed development client app.
 
 ---
@@ -112,28 +104,27 @@ The project follows a feature-first approach within the `src` directory:
 
 The `package.json` includes several helpful scripts:
 
-| Script                    | Description                                                                   |
-| :------------------------ | :---------------------------------------------------------------------------- |
-| `yarn start`              | Starts the Metro bundler for Expo Go / Dev Client (using `.env.development`). |
-| `yarn start:prod`         | Starts the Metro bundler using `.env.production`.                             |
-| `yarn start:dev`          | Alias for `yarn start --dev-client`. Starts for the development client.       |
-| `yarn ios`                | Runs the app on an iOS simulator/device (using `.env.development`).           |
-| `yarn ios:prod`           | Runs the app on an iOS simulator/device (using `.env.production`).            |
-| `yarn android`            | Runs the app on an Android emulator/device (using `.env.development`).        |
-| `yarn android:prod`       | Runs the app on an Android emulator/device (using `.env.production`).         |
-| `yarn device`             | Runs the app on a connected device (iOS, using `.env.development`).           |
-| `yarn device:prod`        | Runs the app on a connected device (iOS, using `.env.production`).            |
-| `yarn build:ios`          | Creates a local iOS build using EAS Build (using `.env.development`).         |
-| `yarn build:ios:prod`     | Creates a local iOS build using EAS Build (using `.env.production`).          |
-| `yarn build:android`      | Creates a local Android build using EAS Build (using `.env.development`).     |
-| `yarn build:android:prod` | Creates a local Android build using EAS Build (using `.env.production`).      |
-| `yarn lint`               | Runs ESLint to check for code style issues.                                   |
-| `yarn lint:fix`           | Runs ESLint and automatically fixes fixable issues.                           |
-| `yarn format`             | Formats code using Prettier.                                                  |
-| `yarn clean`              | Removes `node_modules`, lock files, and reinstall dependencies.               |
-| `yarn postinstall`        | Runs `patch-package` after installation.                                      |
-| `yarn prebuild`           | Runs `expo prebuild` using `.env.development`.                                |
-| `yarn prebuild:prod`      | Runs `expo prebuild` using `.env.production`.                                 |
+| Script                        | Description                                                                   |
+| :---------------------------- | :---------------------------------------------------------------------------- |
+| `pnpm start`                  | Starts the Metro bundler for Expo Go / Dev Client (using `.env.development`). |
+| `pnpm run start:prod`         | Starts the Metro bundler using `.env.production`.                             |
+| `pnpm run ios`                | Runs the app on an iOS simulator/device (using `.env.development`).           |
+| `pnpm run ios:prod`           | Runs the app on an iOS simulator/device (using `.env.production`).            |
+| `pnpm run android`            | Runs the app on an Android emulator/device (using `.env.development`).        |
+| `pnpm run android:prod`       | Runs the app on an Android emulator/device (using `.env.production`).         |
+| `pnpm run device`             | Runs the app on a connected device (iOS, using `.env.development`).           |
+| `pnpm run device:prod`        | Runs the app on a connected device (iOS, using `.env.production`).            |
+| `pnpm run build:ios`          | Creates a local iOS build using EAS Build (using `.env.development`).         |
+| `pnpm run build:ios:prod`     | Creates a local iOS build using EAS Build (using `.env.production`).          |
+| `pnpm run build:android`      | Creates a local Android build using EAS Build (using `.env.development`).     |
+| `pnpm run build:android:prod` | Creates a local Android build using EAS Build (using `.env.production`).      |
+| `pnpm run lint`               | Runs ESLint to check for code style issues.                                   |
+| `pnpm run lint:fix`           | Runs ESLint and automatically fixes fixable issues.                           |
+| `pnpm run format`             | Formats code using Prettier.                                                  |
+| `pnpm run clean`              | Removes `node_modules`, lock files, and reinstall dependencies.               |
+| `pnpm run postinstall`        | Runs `patch-package` after installation.                                      |
+| `pnpm run prebuild`           | Runs `expo prebuild` using `.env.development`.                                |
+| `pnpm run prebuild:prod`      | Runs `expo prebuild` using `.env.production`.                                 |
 
 **Note:** Scripts ending in `:prod` explicitly load environment variables from `.env.production` using `dotenvx`. Development scripts load from `.env.development` by default.
 
@@ -143,10 +134,9 @@ The `package.json` includes several helpful scripts:
 
 Environment variables are managed using `dotenvx`.
 
-- Create `.env.development` for local development.
-- Create `.env.production` for production builds.
-- Access variables in your code via `process.env.YOUR_VARIABLE_NAME`. Ensure you declare them in `expo-env.d.ts` for TypeScript support.
-- **Never commit `.env.*` files to Git.** Use environment variable management provided by your hosting/build platform for production secrets.
+- Fill out `.env.development` for local development.
+- Fill out `.env.production` for production builds.
+- **Note:** Parts of app config are dependent on environment variables, so filling them out is necessary.
 
 ---
 
