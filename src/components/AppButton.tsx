@@ -80,7 +80,7 @@ export const AppButton = React.forwardRef<View, TProps>(
         ref={ref}
         {...props}
         className={cn(
-          "flex-row items-center justify-center gap-2",
+          "flex-row items-center justify-center gap-2 opacity-100 transition-transform duration-200 active:scale-95",
           {
             "opacity-40": disabled,
           },

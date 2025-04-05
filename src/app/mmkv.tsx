@@ -48,10 +48,10 @@ const MMKV = () => {
   return (
     <View className="flex-1">
       <KeyboardAwareScrollView
-        contentContainerClassName="pb-safe-offset-3 pt-4 px-4 h-full justify-center"
+        contentContainerClassName="pb-safe-offset-3 pt-4 px-4"
         extraScrollHeight={80}
       >
-        <View className="gap-10">
+        <View className="mt-[40%] gap-10">
           <View className="flex-row items-center justify-center gap-3">
             <View className="size-12">
               <AppImage src={images.tanstack} />

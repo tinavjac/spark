@@ -8,8 +8,8 @@ const Zustand = () => {
 
   return (
     <View className="flex-1">
-      <ScrollView contentContainerClassName="pb-safe-offset-3 pt-4 px-4 h-full justify-center">
-        <View className="items-center gap-10">
+      <ScrollView contentContainerClassName="pb-safe-offset-3 pt-4 px-4">
+        <View className="mt-[70%] gap-10">
           <AppText className="text-center text-7xl font-bold text-neutral-800">{count}x 🐻</AppText>
           <View className="flex-row gap-4">
             <AppButton
@@ -23,7 +23,7 @@ const Zustand = () => {
               )}
             />
             <AppButton
-              label="Descrement"
+              label="Decrement"
               variant="red-500"
               size="md"
               className="flex-1"
