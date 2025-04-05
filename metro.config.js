@@ -20,6 +20,8 @@ const createConfig = () => {
 }
 
 const config = createConfig()
-module.exports = withNativeWind(wrapWithReanimatedMetroConfig(config), {
-  input: "./src/global.css",
-})
+module.exports = wrapWithReanimatedMetroConfig(
+  withNativeWind(config, {
+    input: "./src/global.css",
+  }),
+)

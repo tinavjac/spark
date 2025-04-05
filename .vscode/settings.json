@@ -1,0 +1,7 @@
+{
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "tailwindCSS.classFunctions": ["cn", "contentContainerClassName"],
+  "tailwindCSS.validate": true
+}

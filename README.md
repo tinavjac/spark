@@ -18,6 +18,7 @@ This boilerplate comes pre-configured with:
 - **Styling:** Tailwind CSS via NativeWind v4
 - **State Management:** Zustand (Simple, fast, scalable)
 - **Data Fetching:** TanStack React Query + Axios
+- **Forms:** TanStack React Form + Zod for validation
 - **Components:**
   - Gorhom Bottom Sheet
   - Shopify FlashList (Performant Lists)

@@ -6,9 +6,18 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     name: process.env.EXPO_PUBLIC_NAME ?? "",
     slug: process.env.EXPO_PUBLIC_SLUG ?? "",
     scheme: process.env.EXPO_PUBLIC_SCHEME ?? "",
+    icon:
+      process.env.EXPO_PUBLIC_ENV === "development"
+        ? "./assets/images/icon-dev.png"
+        : "./assets/images/icon.png",
     splash: {
       ...config.splash,
-      backgroundColor: "#ffffff",
+      image:
+        process.env.EXPO_PUBLIC_ENV === "development"
+          ? "./assets/images/splashscreen-dev.png"
+          : "./assets/images/splashscreen.png",
+      resizeMode: "cover",
+      backgroundColor: "#F6F4ED",
     },
     ios: {
       ...config.ios,
@@ -17,10 +26,16 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     android: {
       ...config.android,
       package: process.env.EXPO_PUBLIC_ANDROID_PACKAGE,
+      adaptiveIcon: {
+        foregroundImage:
+          process.env.EXPO_PUBLIC_ENV === "development"
+            ? "./assets/images/adaptive-icon-dev.png"
+            : "./assets/images/adaptive-icon.png",
+        backgroundColor: "#F6F4ED",
+      },
     },
     web: {
       ...config.web,
-      bundler: "metro",
     },
     updates: {
       enabled: false,
