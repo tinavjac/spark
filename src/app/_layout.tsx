@@ -7,9 +7,11 @@ import { useEffect } from "react"
 import { GestureHandlerRootView } from "react-native-gesture-handler"
 import { MMKV } from "react-native-mmkv"
 import { configureReanimatedLogger, ReanimatedLogLevel } from "react-native-reanimated"
-import { SafeAreaProvider } from "react-native-safe-area-context"
+import { SafeAreaProvider, useSafeAreaInsets } from "react-native-safe-area-context"
+import Toast from "react-native-toast-message"
 import "../global.css"
 import { loadFonts, loadImages } from "../theme"
+import { tryCatch } from "../utils/tryCatch"
 
 configureReanimatedLogger({
   level: ReanimatedLogLevel.warn,
@@ -28,11 +30,13 @@ export default function Layout() {
 
   useEffect(() => {
     const preload = async () => {
-      try {
+      const preloadResult = await tryCatch(async () => {
         await Promise.all([loadImages(), loadFonts()])
         await SplashScreen.hideAsync()
-      } catch (err) {
-        console.log("[##] preload error:", err)
+      }, "Assets preload")
+
+      if (preloadResult.error) {
+        console.error("[##] preload error:", preloadResult.error)
       }
     }
 
@@ -64,6 +68,13 @@ export default function Layout() {
           </QueryClientProvider>
         </BottomSheetModalProvider>
       </GestureHandlerRootView>
+      <ToastProvider />
     </SafeAreaProvider>
   )
+}
+
+const ToastProvider = () => {
+  const insets = useSafeAreaInsets()
+
+  return <Toast topOffset={insets.top} bottomOffset={insets.bottom} />
 }

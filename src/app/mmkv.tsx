@@ -5,7 +5,7 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { z } from "zod"
 import { AppButton, AppImage, AppInput, AppText } from "../components"
 import { images } from "../theme"
-import { getFromStorage, setToStorage } from "../utils"
+import { getFromStorage, setToStorage, toast } from "../utils"
 
 interface IFormData {
   name?: string
@@ -38,9 +38,13 @@ const MMKV = () => {
       onSubmit: formSchema,
     },
     onSubmit: async ({ value }) => {
-      setToStorage("user", value)
       await new Promise((resolve) => setTimeout(resolve, 1000)).then(() => {
-        // TODO: toast
+        setToStorage("user", value)
+        toast({
+          type: "success",
+          title: "Success message",
+          description: "Successfully sold your personal data! 🎉",
+        })
       })
     },
   })
@@ -125,7 +129,7 @@ const MMKV = () => {
               selector={(state) => [state.canSubmit, state.isSubmitting]}
               children={([canSubmit, isSubmitting]) => (
                 <AppButton
-                  label="Submit"
+                  label="Sell my data 💀"
                   variant="yellow-400"
                   size="lg"
                   isLoading={isSubmitting}

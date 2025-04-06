@@ -1,4 +1,5 @@
 import { create } from "zustand"
+import { toast } from "../utils"
 
 interface CounterState {
   count: number
@@ -6,8 +7,17 @@ interface CounterState {
   decrement: () => void
 }
 
-export const useCounter = create<CounterState>((set) => ({
+export const useCounter = create<CounterState>((set, get) => ({
   count: 0,
-  increment: () => set((state) => ({ count: state.count + 1 })),
+  increment: () => {
+    set((state) => ({ count: state.count + 1 }))
+    if (get().count >= 10) {
+      toast({
+        type: "error",
+        title: "Error message",
+        description: "10 🐻 is more than enough!",
+      })
+    }
+  },
   decrement: () => set((state) => ({ count: state.count - 1 })),
 }))

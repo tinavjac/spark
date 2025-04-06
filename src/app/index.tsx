@@ -1,6 +1,6 @@
 import { Link } from "expo-router"
 import React from "react"
-import { ScrollView, View } from "react-native"
+import { Pressable, ScrollView, View } from "react-native"
 import { AppButton, AppText, Icon } from "../components"
 
 const Page = () => {
@@ -9,7 +9,9 @@ const Page = () => {
       <ScrollView contentContainerClassName="pb-safe-offset-3 px-4 pt-4">
         <View className="mt-[50%] gap-10">
           <View className="items-center gap-2">
-            <Icon icon="IconSparkLogo" width={80} height={100} />
+            <Pressable className="animate-bounce">
+              <Icon icon="IconSparkLogo" width={80} height={100} />
+            </Pressable>
             <AppText className="text-center text-2xl font-light tracking-wider text-neutral-700">
               Opinionated template for your next React Native project
             </AppText>

@@ -4,13 +4,13 @@
 
 ---
 
-🚀 **Spark** is an opinionated React Native boilerplate built with Expo, TypeScript, Tailwind CSS, and Zustand. It provides a solid foundation with essential tooling and a clean project structure, allowing you to skip the setup and start building your amazing app right away.
+🚀 **Spark** is an opinionated React Native template built with Expo, TypeScript, Tailwind CSS, and Zustand. It provides a solid foundation with essential tooling and a clean project structure, allowing you to skip the setup and start building your amazing app right away.
 
 ---
 
 ## 🛠️ Tech Stack
 
-This boilerplate comes pre-configured with:
+This template comes pre-configured with:
 
 - **Framework:** React Native with Expo SDK
 - **Language:** TypeScript

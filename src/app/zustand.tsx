@@ -17,6 +17,7 @@ const Zustand = () => {
               variant="green-500"
               size="md"
               className="flex-1"
+              disabled={count >= 10}
               onPress={increment}
               renderItemLeft={() => (
                 <AppText className="text-2xl font-bold text-neutral-50">⊕</AppText>
@@ -27,7 +28,7 @@ const Zustand = () => {
               variant="red-500"
               size="md"
               className="flex-1"
-              disabled={count === 0}
+              disabled={count <= 0}
               onPress={decrement}
               renderItemLeft={() => (
                 <AppText className="text-2xl font-bold text-neutral-50">⊖</AppText>
