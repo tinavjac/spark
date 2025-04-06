@@ -6,7 +6,7 @@
     "clean": "rm -rf node_modules package-lock-json ios android && yarn install",
     "format": "prettier --config .prettierrc.json src/**/*.{ts,tsx} --write",
     "lint": "expo lint",
-    "fix": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
+    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
     "prebuild": "EXPO_NO_DOTENV=1 dotenvx run -f .env.development -- npx expo prebuild",
     "prebuild:prod": "EXPO_NO_DOTENV=1 dotenvx run -f .env.production -- npx expo prebuild",
     "start": "EXPO_NO_DOTENV=1 dotenvx run -f .env.development -- expo start -c --dev-client",

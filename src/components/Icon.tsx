@@ -1,8 +1,8 @@
 import React from "react"
 import { DimensionValue, View } from "react-native"
 import { SvgProps } from "react-native-svg"
-import { cn } from "@/utils"
 
+import { cn } from "@/utils"
 import IconLoading from "assets/icons/loading.svg"
 import IconSparkLogo from "assets/icons/spark-logo.svg"
 

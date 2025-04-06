@@ -6,6 +6,7 @@ import {
   TextInputProps,
   View,
 } from "react-native"
+
 import { AppText } from "@/components/AppText"
 import { cn } from "@/utils"
 

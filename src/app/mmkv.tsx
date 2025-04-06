@@ -3,9 +3,10 @@ import React from "react"
 import { View } from "react-native"
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view"
 import { z } from "zod"
-import { getFromStorage, setToStorage, toast } from "@/utils"
+
+import { AppButton, AppImage, AppInput, AppText } from "@/components"
 import { images } from "@/theme"
-import { AppImage, AppText, AppInput, AppButton } from "@/components"
+import { getFromStorage, setToStorage, toast } from "@/utils"
 
 interface IFormData {
   name?: string

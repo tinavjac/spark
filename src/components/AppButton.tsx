@@ -1,5 +1,6 @@
 import React, { ComponentProps, ReactNode, useMemo } from "react"
 import { Pressable, View } from "react-native"
+
 import { AppText } from "@/components/AppText"
 import { Icon } from "@/components/Icon"
 import { cn } from "@/utils"

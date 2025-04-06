@@ -4,6 +4,15 @@ module.exports = {
   plugins: ["prettier"],
   rules: {
     "prettier/prettier": "warn",
-    "import/order": "warn",
+    "import/order": [
+      "warn",
+      {
+        groups: [
+          ["builtin", "external"],
+          ["internal", "parent", "sibling", "index"],
+        ],
+        "newlines-between": "always",
+      },
+    ],
   },
 }
