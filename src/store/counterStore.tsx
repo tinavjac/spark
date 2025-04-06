@@ -1,5 +1,5 @@
 import { create } from "zustand"
-import { toast } from "../utils"
+import { toast } from "@/utils"
 
 interface CounterState {
   count: number

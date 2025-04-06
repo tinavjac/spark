@@ -1,7 +1,7 @@
 import { Link } from "expo-router"
 import React from "react"
 import { Pressable, ScrollView, View } from "react-native"
-import { AppButton, AppText, Icon } from "../components"
+import { AppButton, AppText, Icon } from "@/components"
 
 const Page = () => {
   return (

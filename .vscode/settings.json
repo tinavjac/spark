@@ -1,7 +1,11 @@
 {
-  "editor.quickSuggestions": {
-    "strings": "on"
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
   },
-  "tailwindCSS.classFunctions": ["cn", "contentContainerClassName"],
+
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+
+  "tailwindCSS.classAttributes": [".*ClassName*"],
   "tailwindCSS.validate": true
 }

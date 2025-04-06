@@ -1,7 +1,7 @@
 import React from "react"
 import { ScrollView, View } from "react-native"
-import { AppButton, AppText } from "../components"
-import { useCounter } from "../store"
+import { AppText, AppButton } from "@/components"
+import { useCounter } from "@/store"
 
 const Zustand = () => {
   const { count, increment, decrement } = useCounter()

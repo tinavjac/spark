@@ -9,9 +9,9 @@ import { MMKV } from "react-native-mmkv"
 import { configureReanimatedLogger, ReanimatedLogLevel } from "react-native-reanimated"
 import { SafeAreaProvider, useSafeAreaInsets } from "react-native-safe-area-context"
 import Toast from "react-native-toast-message"
-import "../global.css"
-import { loadFonts, loadImages } from "../theme"
-import { tryCatch } from "../utils/tryCatch"
+import "@/global.css"
+import { loadImages, loadFonts } from "@/theme"
+import { tryCatch } from "@/utils/tryCatch"
 
 configureReanimatedLogger({
   level: ReanimatedLogLevel.warn,

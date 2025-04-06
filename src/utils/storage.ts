@@ -1,6 +1,6 @@
 import { ZodType } from "zod"
-import { storage } from "../app/_layout"
-import { tryCatch } from "./tryCatch"
+import { storage } from "@/app/_layout"
+import { tryCatch } from "@/utils/tryCatch"
 
 export type TStorageKey = "user"
 

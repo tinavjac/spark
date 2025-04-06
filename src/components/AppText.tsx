@@ -1,6 +1,6 @@
 import React, { ComponentProps } from "react"
 import { Text } from "react-native"
-import { cn } from "../utils"
+import { cn } from "@/utils"
 
 type TProps = ComponentProps<typeof Text> & {}
 

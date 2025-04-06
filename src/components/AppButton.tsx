@@ -1,8 +1,8 @@
 import React, { ComponentProps, ReactNode, useMemo } from "react"
 import { Pressable, View } from "react-native"
-import { cn } from "../utils"
-import { AppText } from "./AppText"
-import { Icon } from "./Icon"
+import { AppText } from "@/components/AppText"
+import { Icon } from "@/components/Icon"
+import { cn } from "@/utils"
 
 export type TButtonVariant = "yellow-400" | "red-500" | "green-500"
 

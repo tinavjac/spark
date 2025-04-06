@@ -6,8 +6,8 @@ import {
   TextInputProps,
   View,
 } from "react-native"
-import { cn } from "../utils"
-import { AppText } from "./AppText"
+import { AppText } from "@/components/AppText"
+import { cn } from "@/utils"
 
 type TProps = TextInputProps & {
   label?: string
