@@ -104,27 +104,27 @@ The project follows a feature-first approach within the `src` directory:
 
 The `package.json` includes several helpful scripts:
 
-| Script                        | Description                                                                   |
-| :---------------------------- | :---------------------------------------------------------------------------- |
-| `pnpm start`                  | Starts the Metro bundler for Expo Go / Dev Client (using `.env.development`). |
-| `pnpm run start:prod`         | Starts the Metro bundler using `.env.production`.                             |
-| `pnpm run ios`                | Runs the app on an iOS simulator/device (using `.env.development`).           |
-| `pnpm run ios:prod`           | Runs the app on an iOS simulator/device (using `.env.production`).            |
-| `pnpm run android`            | Runs the app on an Android emulator/device (using `.env.development`).        |
-| `pnpm run android:prod`       | Runs the app on an Android emulator/device (using `.env.production`).         |
-| `pnpm run device`             | Runs the app on a connected device (iOS, using `.env.development`).           |
-| `pnpm run device:prod`        | Runs the app on a connected device (iOS, using `.env.production`).            |
-| `pnpm run build:ios`          | Creates a local iOS build using EAS Build (using `.env.development`).         |
-| `pnpm run build:ios:prod`     | Creates a local iOS build using EAS Build (using `.env.production`).          |
-| `pnpm run build:android`      | Creates a local Android build using EAS Build (using `.env.development`).     |
-| `pnpm run build:android:prod` | Creates a local Android build using EAS Build (using `.env.production`).      |
-| `pnpm run lint`               | Runs ESLint to check for code style issues.                                   |
-| `pnpm run lint:fix`           | Runs ESLint and automatically fixes fixable issues.                           |
-| `pnpm run format`             | Formats code using Prettier.                                                  |
-| `pnpm run clean`              | Removes `node_modules`, lock files, and reinstall dependencies.               |
-| `pnpm run postinstall`        | Runs `patch-package` after installation.                                      |
-| `pnpm run prebuild`           | Runs `expo prebuild` using `.env.development`.                                |
-| `pnpm run prebuild:prod`      | Runs `expo prebuild` using `.env.production`.                                 |
+| Script                    | Description                                                                   |
+| :------------------------ | :---------------------------------------------------------------------------- |
+| `pnpm start`              | Starts the Metro bundler for Expo Go / Dev Client (using `.env.development`). |
+| `pnpm start:prod`         | Starts the Metro bundler using `.env.production`.                             |
+| `pnpm ios`                | Runs the app on an iOS simulator/device (using `.env.development`).           |
+| `pnpm ios:prod`           | Runs the app on an iOS simulator/device (using `.env.production`).            |
+| `pnpm android`            | Runs the app on an Android emulator/device (using `.env.development`).        |
+| `pnpm android:prod`       | Runs the app on an Android emulator/device (using `.env.production`).         |
+| `pnpm device`             | Runs the app on a connected device (iOS, using `.env.development`).           |
+| `pnpm device:prod`        | Runs the app on a connected device (iOS, using `.env.production`).            |
+| `pnpm build:ios`          | Creates a local iOS build using EAS Build (using `.env.development`).         |
+| `pnpm build:ios:prod`     | Creates a local iOS build using EAS Build (using `.env.production`).          |
+| `pnpm build:android`      | Creates a local Android build using EAS Build (using `.env.development`).     |
+| `pnpm build:android:prod` | Creates a local Android build using EAS Build (using `.env.production`).      |
+| `pnpm lint`               | Runs ESLint to check for code style issues.                                   |
+| `pnpm lint:fix`           | Runs ESLint and automatically fixes fixable issues.                           |
+| `pnpm format`             | Formats code using Prettier.                                                  |
+| `pnpm clean`              | Removes `node_modules`, lock files, and reinstall dependencies.               |
+| `pnpm postinstall`        | Runs `patch-package` after installation.                                      |
+| `pnpm prebuild`           | Runs `expo prebuild` using `.env.development`.                                |
+| `pnpm prebuild:prod`      | Runs `expo prebuild` using `.env.production`.                                 |
 
 **Note:** Scripts ending in `:prod` explicitly load environment variables from `.env.production` using `dotenvx`. Development scripts load from `.env.development` by default.
 
