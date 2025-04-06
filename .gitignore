@@ -17,6 +17,9 @@ expo-env.d.ts
 *.key
 *.mobileprovision
 
+#Nativewind
+nativewind-env.d.ts
+
 # Metro
 .metro-health-check*
 
