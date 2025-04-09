@@ -7,6 +7,7 @@ import { z } from "zod"
 import { AppButton, AppImage, AppInput, AppText } from "@/components"
 import { images } from "@/theme"
 import { getFromStorage, setToStorage, toast } from "@/utils"
+import { hapticsImpact, hapticsNotify } from "@/utils/haptics"
 
 interface IFormData {
   name?: string
@@ -39,8 +40,10 @@ const MMKV = () => {
       onSubmit: formSchema,
     },
     onSubmit: async ({ value }) => {
+      hapticsImpact("light")
       await new Promise((resolve) => setTimeout(resolve, 1000)).then(() => {
         setToStorage("user", value)
+        hapticsNotify("success")
         toast({
           type: "success",
           title: "Success message",
