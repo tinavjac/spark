@@ -1,3 +1,4 @@
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6"
 import React from "react"
 import { ScrollView, View } from "react-native"
 
@@ -20,9 +21,7 @@ const Zustand = () => {
               className="flex-1"
               disabled={count >= 10}
               onPress={increment}
-              renderItemLeft={() => (
-                <AppText className="text-2xl font-bold text-neutral-50">⊕</AppText>
-              )}
+              renderItemLeft={() => <FontAwesome6 name="circle-plus" size={20} color="white" />}
             />
             <AppButton
               label="Decrement"
@@ -31,9 +30,7 @@ const Zustand = () => {
               className="flex-1"
               disabled={count <= 0}
               onPress={decrement}
-              renderItemLeft={() => (
-                <AppText className="text-2xl font-bold text-neutral-50">⊖</AppText>
-              )}
+              renderItemLeft={() => <FontAwesome6 name="circle-minus" size={20} color="white" />}
             />
           </View>
         </View>
