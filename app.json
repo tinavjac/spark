@@ -1,9 +1,6 @@
 {
   "expo": {
     "newArchEnabled": true,
-    "name": "Spark",
-    "slug": "spark",
-    "scheme": "spark",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",

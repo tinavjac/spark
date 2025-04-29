@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "expo-router/entry",
   "scripts": {
-    "clean": "rm -rf node_modules package-lock-json ios android && yarn install",
+    "clean": "rm -rf node_modules package-lock-json ios android && pnpm install && pnpm prebuild",
     "format": "prettier --config .prettierrc.json src/**/*.{ts,tsx} --write",
     "lint": "expo lint",
     "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
