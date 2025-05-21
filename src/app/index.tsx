@@ -4,7 +4,7 @@ import React from "react"
 import { ScrollView, View } from "react-native"
 
 import { AppButton, AppText, Icon } from "@/components"
-import { hapticsImpact } from "@/utils/haptics"
+import { hapticsImpact } from "@/utils"
 
 const Page = () => {
   return (
@@ -15,10 +15,11 @@ const Page = () => {
             <Motion.View
               initial={{ x: -50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              whileTap={{ scale: 1.25 }}
+              whileTap={{ scale: 1.2 }}
               transition={{
                 type: "spring",
                 stiffness: 500,
+                damping: 10,
               }}
             >
               <Icon icon="IconSparkLogo" width={100} height={120} />

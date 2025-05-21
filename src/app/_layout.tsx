@@ -3,8 +3,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { SplashScreen, Stack } from "expo-router"
 import { StatusBar } from "expo-status-bar"
 import { useColorScheme } from "nativewind"
-import { useEffect } from "react"
+import React, { useEffect } from "react"
 import { GestureHandlerRootView } from "react-native-gesture-handler"
+import { KeyboardProvider } from "react-native-keyboard-controller"
 import { MMKV } from "react-native-mmkv"
 import { configureReanimatedLogger, ReanimatedLogLevel } from "react-native-reanimated"
 import { SafeAreaProvider, useSafeAreaInsets } from "react-native-safe-area-context"
@@ -46,29 +47,31 @@ export default function Layout() {
 
   return (
     <SafeAreaProvider>
-      <GestureHandlerRootView>
-        <BottomSheetModalProvider>
+      <KeyboardProvider>
+        <GestureHandlerRootView>
           <QueryClientProvider client={queryClient}>
-            <StatusBar
-              style={colorScheme === "light" ? "dark" : "light"}
-              backgroundColor={"#ffffff"}
-            />
-            <Stack
-              screenOptions={{
-                headerBackTitle: "Back",
-                headerShadowVisible: false,
-                headerTintColor: "#262626",
-                headerStyle: { backgroundColor: "#FFFFFF" },
-                contentStyle: { backgroundColor: "#f5f5f5" },
-              }}
-            >
-              <Stack.Screen name="index" options={{ title: "Spark✨" }} />
-              <Stack.Screen name="zustand" options={{ title: "🐻 Zustand example" }} />
-              <Stack.Screen name="mmkv" options={{ title: "💾 MMKV example" }} />
-            </Stack>
+            <BottomSheetModalProvider>
+              <StatusBar
+                style={colorScheme === "light" ? "dark" : "light"}
+                backgroundColor={"#ffffff"}
+              />
+              <Stack
+                screenOptions={{
+                  headerBackTitle: "Back",
+                  headerShadowVisible: false,
+                  headerTintColor: "#262626",
+                  headerStyle: { backgroundColor: "#FFFFFF" },
+                  contentStyle: { backgroundColor: "#f5f5f5" },
+                }}
+              >
+                <Stack.Screen name="index" options={{ title: "Spark✨" }} />
+                <Stack.Screen name="zustand" options={{ title: "🐻 Zustand example" }} />
+                <Stack.Screen name="mmkv" options={{ title: "💾 MMKV example" }} />
+              </Stack>
+            </BottomSheetModalProvider>
           </QueryClientProvider>
-        </BottomSheetModalProvider>
-      </GestureHandlerRootView>
+        </GestureHandlerRootView>
+      </KeyboardProvider>
       <ToastProvider />
     </SafeAreaProvider>
   )

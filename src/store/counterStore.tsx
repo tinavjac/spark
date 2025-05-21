@@ -1,7 +1,6 @@
 import { create } from "zustand"
 
-import { toast } from "@/utils"
-import { hapticsImpact, hapticsNotify } from "@/utils/haptics"
+import { hapticsImpact, hapticsNotify, toast } from "@/utils"
 
 interface CounterState {
   count: number

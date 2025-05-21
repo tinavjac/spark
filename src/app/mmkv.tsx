@@ -1,27 +1,29 @@
 import { useForm } from "@tanstack/react-form"
 import React from "react"
 import { View } from "react-native"
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view"
+import { KeyboardAwareScrollView } from "react-native-keyboard-controller"
 import { z } from "zod"
 
 import { AppButton, AppImage, AppInput, AppText } from "@/components"
 import { images } from "@/theme"
-import { getFromStorage, setToStorage, toast } from "@/utils"
-import { hapticsImpact, hapticsNotify } from "@/utils/haptics"
+import {
+  getFromStorage,
+  hapticsNotify,
+  setToStorage,
+  toast,
+  zEmail,
+  zRequiredString,
+} from "@/utils"
 
 interface IFormData {
-  name?: string
-  surname?: string
-  email?: string
+  name: string
+  surname: string
+  email: string
 }
 
-const zName = z.string({ required_error: "Name is required" }).nonempty("Name is required")
-const zSurname = z.string({ required_error: "Surname is required" }).nonempty("Surname is required")
-const zEmail = z.string({ required_error: "Email is required" }).email("Invalid email")
-
 const formSchema = z.object({
-  name: zName,
-  surname: zSurname,
+  name: zRequiredString,
+  surname: zRequiredString,
   email: zEmail,
 })
 
@@ -32,15 +34,14 @@ const MMKV = () => {
   // form
   const form = useForm({
     defaultValues: {
-      name: data?.name,
-      surname: data?.surname,
-      email: data?.email,
+      name: data?.name ?? "",
+      surname: data?.surname ?? "",
+      email: data?.email ?? "",
     } as IFormData,
     validators: {
       onSubmit: formSchema,
     },
     onSubmit: async ({ value }) => {
-      hapticsImpact("light")
       await new Promise((resolve) => setTimeout(resolve, 1000)).then(() => {
         setToStorage("user", value)
         hapticsNotify("success")
@@ -57,7 +58,7 @@ const MMKV = () => {
     <View className="flex-1">
       <KeyboardAwareScrollView
         contentContainerClassName="pb-safe-offset-3 pt-4 px-4"
-        extraScrollHeight={80}
+        bottomOffset={16}
       >
         <View className="mt-[40%] gap-10">
           <View className="flex-row items-center justify-center gap-3">
@@ -74,7 +75,7 @@ const MMKV = () => {
           <View className="gap-3">
             <form.Field
               name="name"
-              validators={{ onChange: zName }}
+              validators={{ onChange: zRequiredString }}
               children={(field) => {
                 return (
                   <AppInput
@@ -84,8 +85,8 @@ const MMKV = () => {
                     onChangeText={field.handleChange}
                     onBlur={field.handleBlur}
                     invalid={field.state.meta.errors.length > 0}
-                    invalidMessage={field.state.meta.errorMap.onChange?.[0].message}
-                    textContentType="name"
+                    textContentType="givenName"
+                    autoComplete="name-given"
                     required
                   />
                 )
@@ -93,7 +94,7 @@ const MMKV = () => {
             />
             <form.Field
               name="surname"
-              validators={{ onChange: zSurname }}
+              validators={{ onChange: zRequiredString }}
               children={(field) => {
                 return (
                   <AppInput
@@ -103,8 +104,8 @@ const MMKV = () => {
                     onChangeText={field.handleChange}
                     onBlur={field.handleBlur}
                     invalid={field.state.meta.errors.length > 0}
-                    invalidMessage={field.state.meta.errorMap.onChange?.[0].message}
                     textContentType="familyName"
+                    autoComplete="name-family"
                     required
                   />
                 )
@@ -122,8 +123,8 @@ const MMKV = () => {
                     onChangeText={field.handleChange}
                     onBlur={field.handleBlur}
                     invalid={field.state.meta.errors.length > 0}
-                    invalidMessage={field.state.meta.errorMap.onChange?.[0].message}
                     textContentType="emailAddress"
+                    autoComplete="email"
                     required
                   />
                 )
