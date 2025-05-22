@@ -2,7 +2,6 @@ import { useForm } from "@tanstack/react-form"
 import React from "react"
 import { View } from "react-native"
 import { KeyboardAwareScrollView } from "react-native-keyboard-controller"
-import colors from "tailwindcss/colors"
 import { z } from "zod"
 
 import {
@@ -17,7 +16,7 @@ import {
   Input,
   InputField,
 } from "@/components"
-import { images } from "@/theme"
+import { colors, images } from "@/theme"
 import {
   getFromStorage,
   hapticsNotify,
