@@ -2,9 +2,21 @@ import { useForm } from "@tanstack/react-form"
 import React from "react"
 import { View } from "react-native"
 import { KeyboardAwareScrollView } from "react-native-keyboard-controller"
+import colors from "tailwindcss/colors"
 import { z } from "zod"
 
-import { AppButton, AppImage, AppInput, AppText } from "@/components"
+import {
+  AppImage,
+  AppText,
+  Button,
+  ButtonSpinner,
+  ButtonText,
+  FormControl,
+  FormControlLabel,
+  FormControlLabelText,
+  Input,
+  InputField,
+} from "@/components"
 import { images } from "@/theme"
 import {
   getFromStorage,
@@ -63,11 +75,11 @@ const MMKV = () => {
         <View className="mt-[40%] gap-10">
           <View className="flex-row items-center justify-center gap-3">
             <View className="size-12">
-              <AppImage src={images.tanstack} />
+              <AppImage src={images.tanstack} isLocal />
             </View>
             <AppText className="text-2xl font-bold">+</AppText>
             <View className="size-12">
-              <AppImage src={images.zod} />
+              <AppImage src={images.zod} isLocal />
             </View>
             <AppText className="text-2xl font-bold">=</AppText>
             <AppText className="text-5xl leading-[48px]">❤️</AppText>
@@ -78,17 +90,19 @@ const MMKV = () => {
               validators={{ onChange: zRequiredString }}
               children={(field) => {
                 return (
-                  <AppInput
-                    label="Name"
-                    placeholder="John"
-                    value={field.state.value}
-                    onChangeText={field.handleChange}
-                    onBlur={field.handleBlur}
-                    invalid={field.state.meta.errors.length > 0}
-                    textContentType="givenName"
-                    autoComplete="name-given"
-                    required
-                  />
+                  <FormControl isInvalid={field.state.meta.errors.length > 0} isRequired>
+                    <FormControlLabel>
+                      <FormControlLabelText>Name</FormControlLabelText>
+                    </FormControlLabel>
+                    <Input>
+                      <InputField
+                        value={field.state.value}
+                        onChangeText={field.handleChange}
+                        textContentType="givenName"
+                        autoComplete="name-given"
+                      />
+                    </Input>
+                  </FormControl>
                 )
               }}
             />
@@ -97,17 +111,19 @@ const MMKV = () => {
               validators={{ onChange: zRequiredString }}
               children={(field) => {
                 return (
-                  <AppInput
-                    label="Surname"
-                    placeholder="Doe"
-                    value={field.state.value}
-                    onChangeText={field.handleChange}
-                    onBlur={field.handleBlur}
-                    invalid={field.state.meta.errors.length > 0}
-                    textContentType="familyName"
-                    autoComplete="name-family"
-                    required
-                  />
+                  <FormControl isInvalid={field.state.meta.errors.length > 0} isRequired>
+                    <FormControlLabel>
+                      <FormControlLabelText>Surname</FormControlLabelText>
+                    </FormControlLabel>
+                    <Input>
+                      <InputField
+                        value={field.state.value}
+                        onChangeText={field.handleChange}
+                        textContentType="familyName"
+                        autoComplete="name-family"
+                      />
+                    </Input>
+                  </FormControl>
                 )
               }}
             />
@@ -116,32 +132,37 @@ const MMKV = () => {
               validators={{ onChange: zEmail }}
               children={(field) => {
                 return (
-                  <AppInput
-                    label="E-mail"
-                    placeholder="john.doe@example.com"
-                    value={field.state.value}
-                    onChangeText={field.handleChange}
-                    onBlur={field.handleBlur}
-                    invalid={field.state.meta.errors.length > 0}
-                    textContentType="emailAddress"
-                    autoComplete="email"
-                    required
-                  />
+                  <FormControl isInvalid={field.state.meta.errors.length > 0} isRequired>
+                    <FormControlLabel>
+                      <FormControlLabelText>E-mail</FormControlLabelText>
+                    </FormControlLabel>
+                    <Input>
+                      <InputField
+                        value={field.state.value}
+                        onChangeText={field.handleChange}
+                        textContentType="emailAddress"
+                        autoComplete="email"
+                      />
+                    </Input>
+                  </FormControl>
                 )
               }}
             />
             <form.Subscribe
               selector={(state) => [state.canSubmit, state.isSubmitting]}
               children={([canSubmit, isSubmitting]) => (
-                <AppButton
-                  label="Sell my data 💀"
-                  variant="yellow-400"
+                <Button
                   size="lg"
-                  isLoading={isSubmitting}
-                  disabled={!canSubmit}
-                  className="mt-4"
+                  className="mt-4 flex-1"
+                  isDisabled={!canSubmit}
                   onPress={form.handleSubmit}
-                />
+                >
+                  {isSubmitting ? (
+                    <ButtonSpinner color={colors.neutral[800]} />
+                  ) : (
+                    <ButtonText>Sell my data 💀</ButtonText>
+                  )}
+                </Button>
               )}
             />
           </View>

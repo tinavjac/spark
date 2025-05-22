@@ -11,6 +11,7 @@ import { configureReanimatedLogger, ReanimatedLogLevel } from "react-native-rean
 import { SafeAreaProvider, useSafeAreaInsets } from "react-native-safe-area-context"
 import Toast from "react-native-toast-message"
 
+import { GluestackUIProvider } from "@/components/ui"
 import "@/global.css"
 import { loadFonts, loadImages } from "@/theme"
 import { tryCatch } from "@/utils/tryCatch"
@@ -50,25 +51,27 @@ export default function Layout() {
       <KeyboardProvider>
         <GestureHandlerRootView>
           <QueryClientProvider client={queryClient}>
-            <BottomSheetModalProvider>
-              <StatusBar
-                style={colorScheme === "light" ? "dark" : "light"}
-                backgroundColor={"#ffffff"}
-              />
-              <Stack
-                screenOptions={{
-                  headerBackTitle: "Back",
-                  headerShadowVisible: false,
-                  headerTintColor: "#262626",
-                  headerStyle: { backgroundColor: "#FFFFFF" },
-                  contentStyle: { backgroundColor: "#f5f5f5" },
-                }}
-              >
-                <Stack.Screen name="index" options={{ title: "Spark✨" }} />
-                <Stack.Screen name="zustand" options={{ title: "🐻 Zustand example" }} />
-                <Stack.Screen name="mmkv" options={{ title: "💾 MMKV example" }} />
-              </Stack>
-            </BottomSheetModalProvider>
+            <GluestackUIProvider mode={colorScheme}>
+              <BottomSheetModalProvider>
+                <StatusBar
+                  style={colorScheme === "light" ? "dark" : "light"}
+                  backgroundColor={"#ffffff"}
+                />
+                <Stack
+                  screenOptions={{
+                    headerBackTitle: "Back",
+                    headerShadowVisible: false,
+                    headerTintColor: "#262626",
+                    headerStyle: { backgroundColor: "#FFFFFF" },
+                    contentStyle: { backgroundColor: "#f5f5f5" },
+                  }}
+                >
+                  <Stack.Screen name="index" options={{ title: "Spark✨" }} />
+                  <Stack.Screen name="zustand" options={{ title: "🐻 Zustand example" }} />
+                  <Stack.Screen name="mmkv" options={{ title: "💾 MMKV example" }} />
+                </Stack>
+              </BottomSheetModalProvider>
+            </GluestackUIProvider>
           </QueryClientProvider>
         </GestureHandlerRootView>
       </KeyboardProvider>

@@ -3,7 +3,7 @@ import { Link } from "expo-router"
 import React from "react"
 import { ScrollView, View } from "react-native"
 
-import { AppButton, AppText, Icon } from "@/components"
+import { AppText, Button, ButtonText, Icon } from "@/components"
 import { hapticsImpact } from "@/utils"
 
 const Page = () => {
@@ -30,10 +30,15 @@ const Page = () => {
           </Motion.Pressable>
           <View className="flex-row gap-4">
             <Link href="/zustand" onPress={() => hapticsImpact("light")} asChild>
-              <AppButton label="🐻 Zustand" variant="yellow-400" size="lg" className="flex-1" />
+              <Button size="lg" action="primary" className="flex-1">
+                <ButtonText>🐻 Zustand</ButtonText>
+              </Button>
+              {/* <AppButton label="🐻 Zustand" variant="yellow-400" size="lg" className="flex-1" /> */}
             </Link>
             <Link href="/mmkv" onPress={() => hapticsImpact("light")} asChild>
-              <AppButton label="💾 MMKV" variant="yellow-400" size="lg" className="flex-1" />
+              <Button size="lg" action="primary" className="flex-1">
+                <ButtonText>💾 MMKV</ButtonText>
+              </Button>
             </Link>
           </View>
         </View>
