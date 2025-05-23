@@ -4,9 +4,12 @@ import React from "react"
 import { ScrollView, View } from "react-native"
 
 import { AppText, Button, ButtonText, Icon } from "@/components"
+import { useTranslations } from "@/hooks"
 import { hapticsImpact } from "@/utils"
 
 const Page = () => {
+  const t = useTranslations()
+
   return (
     <View className="flex-1">
       <ScrollView contentContainerClassName="pb-safe-offset-3 px-4 pt-4">
@@ -25,19 +28,18 @@ const Page = () => {
               <Icon icon="IconSparkLogo" width={100} height={120} />
             </Motion.View>
             <AppText className="text-center text-2xl font-light tracking-wider">
-              Opinionated template for your next React Native project
+              {t("Home.description")}
             </AppText>
           </Motion.Pressable>
           <View className="flex-row gap-4">
             <Link href="/zustand" onPress={() => hapticsImpact("light")} asChild>
               <Button size="lg" action="primary" className="flex-1">
-                <ButtonText>🐻 Zustand</ButtonText>
+                <ButtonText>{t("Home.zustand")}</ButtonText>
               </Button>
-              {/* <AppButton label="🐻 Zustand" variant="yellow-400" size="lg" className="flex-1" /> */}
             </Link>
             <Link href="/mmkv" onPress={() => hapticsImpact("light")} asChild>
               <Button size="lg" action="primary" className="flex-1">
-                <ButtonText>💾 MMKV</ButtonText>
+                <ButtonText>{t("Home.mmkv")}</ButtonText>
               </Button>
             </Link>
           </View>

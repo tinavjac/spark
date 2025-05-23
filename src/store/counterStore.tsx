@@ -1,11 +1,11 @@
 import { create } from "zustand"
 
-import { hapticsImpact, hapticsNotify, toast } from "@/utils"
+import { hapticsImpact } from "@/utils"
 
 interface CounterState {
   count: number
-  increment: () => void
-  decrement: () => void
+  increment: () => number
+  decrement: () => number
 }
 
 export const useCounter = create<CounterState>((set, get) => ({
@@ -13,17 +13,11 @@ export const useCounter = create<CounterState>((set, get) => ({
   increment: () => {
     hapticsImpact("light")
     set((state) => ({ count: state.count + 1 }))
-    if (get().count >= 10) {
-      hapticsNotify("warning")
-      toast({
-        type: "info",
-        title: "Heyy!!",
-        description: "10 🐻 is more than enough!",
-      })
-    }
+    return get().count
   },
   decrement: () => {
     hapticsImpact("light")
     set((state) => ({ count: state.count - 1 }))
+    return get().count
   },
 }))

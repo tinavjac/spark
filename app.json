@@ -12,13 +12,18 @@
     "web": {
       "bundler": "metro"
     },
+    "locales": {
+      "en": "src/locales/en.json",
+      "cs": "src/locales/cs.json"
+    },
     "plugins": [
       [
         "expo-router",
         {
-          "root": "./src/app"
+          "root": "src/app"
         }
-      ]
+      ],
+      "expo-localization"
     ],
     "experiments": {
       "typedRoutes": true

@@ -16,6 +16,7 @@ import {
   Input,
   InputField,
 } from "@/components"
+import { useTranslations } from "@/hooks"
 import { colors, images } from "@/theme"
 import {
   getFromStorage,
@@ -39,6 +40,8 @@ const formSchema = z.object({
 })
 
 const MMKV = () => {
+  const t = useTranslations()
+
   // data from storage
   const data = getFromStorage<IFormData>("user", formSchema)
 
@@ -58,8 +61,8 @@ const MMKV = () => {
         hapticsNotify("success")
         toast({
           type: "success",
-          title: "Success message",
-          description: "Successfully sold your personal data! 🎉",
+          title: t("GeneralTranslations.toast.successMessage"),
+          description: t("MMKV.toast.dataSold"),
         })
       })
     },
@@ -91,7 +94,7 @@ const MMKV = () => {
                 return (
                   <FormControl isInvalid={field.state.meta.errors.length > 0} isRequired>
                     <FormControlLabel>
-                      <FormControlLabelText>Name</FormControlLabelText>
+                      <FormControlLabelText>{t("MMKV.name")}</FormControlLabelText>
                     </FormControlLabel>
                     <Input>
                       <InputField
@@ -112,7 +115,7 @@ const MMKV = () => {
                 return (
                   <FormControl isInvalid={field.state.meta.errors.length > 0} isRequired>
                     <FormControlLabel>
-                      <FormControlLabelText>Surname</FormControlLabelText>
+                      <FormControlLabelText>{t("MMKV.surname")}</FormControlLabelText>
                     </FormControlLabel>
                     <Input>
                       <InputField
@@ -133,7 +136,7 @@ const MMKV = () => {
                 return (
                   <FormControl isInvalid={field.state.meta.errors.length > 0} isRequired>
                     <FormControlLabel>
-                      <FormControlLabelText>E-mail</FormControlLabelText>
+                      <FormControlLabelText>{t("MMKV.email")}</FormControlLabelText>
                     </FormControlLabel>
                     <Input>
                       <InputField
@@ -159,7 +162,7 @@ const MMKV = () => {
                   {isSubmitting ? (
                     <ButtonSpinner color={colors.neutral[800]} />
                   ) : (
-                    <ButtonText>Sell my data 💀</ButtonText>
+                    <ButtonText>{t("MMKV.sellMyData")}</ButtonText>
                   )}
                 </Button>
               )}

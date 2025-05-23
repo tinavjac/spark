@@ -13,6 +13,7 @@ import Toast from "react-native-toast-message"
 
 import { GluestackUIProvider } from "@/components/ui"
 import "@/global.css"
+import { useTranslations } from "@/hooks"
 import { loadFonts, loadImages } from "@/theme"
 import { tryCatch } from "@/utils/tryCatch"
 
@@ -28,6 +29,8 @@ const queryClient = new QueryClient()
 export const storage = new MMKV()
 
 export default function Layout() {
+  const t = useTranslations()
+
   const { colorScheme, setColorScheme } = useColorScheme()
   setColorScheme("light")
 
@@ -59,16 +62,16 @@ export default function Layout() {
                 />
                 <Stack
                   screenOptions={{
-                    headerBackTitle: "Back",
+                    headerBackTitle: t("GeneralTranslations.back"),
                     headerShadowVisible: false,
                     headerTintColor: "#262626",
                     headerStyle: { backgroundColor: "#FFFFFF" },
                     contentStyle: { backgroundColor: "#f5f5f5" },
                   }}
                 >
-                  <Stack.Screen name="index" options={{ title: "Spark✨" }} />
-                  <Stack.Screen name="zustand" options={{ title: "🐻 Zustand example" }} />
-                  <Stack.Screen name="mmkv" options={{ title: "💾 MMKV example" }} />
+                  <Stack.Screen name="index" options={{ title: t("Home.title") }} />
+                  <Stack.Screen name="zustand" options={{ title: t("Zustand.title") }} />
+                  <Stack.Screen name="mmkv" options={{ title: t("MMKV.title") }} />
                 </Stack>
               </BottomSheetModalProvider>
             </GluestackUIProvider>

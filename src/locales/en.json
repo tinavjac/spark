@@ -1,0 +1,36 @@
+{
+  "GeneralTranslations": {
+    "back": "Back",
+    "toast": {
+      "infoMessage": "Info message",
+      "errorMessage": "Error message",
+      "successMessage": "Success message"
+    }
+  },
+  "Home": {
+    "title": "Spark✨",
+    "description": "Opinionated template for your next React Native project",
+    "zustand": "🐻 Zustand",
+    "mmkv": "💾 MMKV"
+  },
+  "Zustand": {
+    "title": "🐻 Zustand example",
+    "bearCount": "%{count}x 🐻",
+    "increment": "Increment",
+    "decrement": "Decrement",
+    "toast": {
+      "increment": "Heyy!! %{count} 🐻 is more than enough!",
+      "decrement": "Heyy!! You have killed all the bears 😭"
+    }
+  },
+  "MMKV": {
+    "title": "💾 MMKV example",
+    "name": "Name",
+    "surname": "Surname",
+    "email": "E-mail",
+    "sellMyData": "Sell my data 💀",
+    "toast": {
+      "dataSold": "Successfully sold your personal data! 🎉"
+    }
+  }
+}
