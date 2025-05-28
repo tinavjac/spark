@@ -77,11 +77,11 @@ const MMKV = () => {
         <View className="mt-[40%] gap-10">
           <View className="flex-row items-center justify-center gap-3">
             <View className="size-12">
-              <AppImage src={images.tanstack} isLocal />
+              <AppImage source={images.tanstack} isLocal />
             </View>
             <AppText className="text-2xl font-bold">+</AppText>
             <View className="size-12">
-              <AppImage src={images.zod} isLocal />
+              <AppImage source={images.zod} isLocal />
             </View>
             <AppText className="text-2xl font-bold">=</AppText>
             <AppText className="text-5xl leading-[48px]">❤️</AppText>
