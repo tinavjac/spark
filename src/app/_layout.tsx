@@ -1,9 +1,9 @@
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { SplashScreen, Stack } from "expo-router"
-import { StatusBar } from "expo-status-bar"
 import { useColorScheme } from "nativewind"
 import React, { useEffect } from "react"
+import { SystemBars } from "react-native-edge-to-edge"
 import { GestureHandlerRootView } from "react-native-gesture-handler"
 import { KeyboardProvider } from "react-native-keyboard-controller"
 import { MMKV } from "react-native-mmkv"
@@ -12,10 +12,11 @@ import { SafeAreaProvider, useSafeAreaInsets } from "react-native-safe-area-cont
 import Toast from "react-native-toast-message"
 
 import { GluestackUIProvider } from "@/components/ui"
-import "@/global.css"
 import { useTranslations } from "@/hooks"
-import { loadFonts, loadImages } from "@/theme"
+import { colors, loadFonts, loadImages } from "@/theme"
 import { tryCatch } from "@/utils/tryCatch"
+
+import "@/global.css"
 
 configureReanimatedLogger({
   level: ReanimatedLogLevel.warn,
@@ -56,17 +57,14 @@ export default function Layout() {
           <QueryClientProvider client={queryClient}>
             <GluestackUIProvider mode={colorScheme}>
               <BottomSheetModalProvider>
-                <StatusBar
-                  style={colorScheme === "light" ? "dark" : "light"}
-                  backgroundColor={"#ffffff"}
-                />
+                <SystemBars style="dark" />
                 <Stack
                   screenOptions={{
                     headerBackTitle: t("GeneralTranslations.back"),
                     headerShadowVisible: false,
-                    headerTintColor: "#262626",
-                    headerStyle: { backgroundColor: "#FFFFFF" },
-                    contentStyle: { backgroundColor: "#f5f5f5" },
+                    headerTintColor: colors.neutral[800],
+                    headerStyle: { backgroundColor: colors.white },
+                    contentStyle: { backgroundColor: colors.neutral[100] },
                   }}
                 >
                   <Stack.Screen name="index" options={{ title: t("Home.title") }} />
